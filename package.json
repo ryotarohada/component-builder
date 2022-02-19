@@ -1,8 +1,8 @@
 {
-  "name": "@wavy/react",
+  "name": "@ryotarohada/component-builder",
   "version": "0.0.2",
   "main": "dist/src/main.js",
-  "repository": "https://github.com/ryotarohada/wavy.git",
+  "repository": "https://github.com/ryotarohada/component-builder.git",
   "author": "Ryotaro Hada <ryotarohada@gmail.com>",
   "license": "MIT",
   "volta": {
@@ -10,7 +10,7 @@
     "yarn": "1.22.17"
   },
   "bin": {
-    "wavy": "dist/bin/cli.js"
+    "component-builder": "dist/bin/cli.js"
   },
   "scripts": {
     "excute": "ts-node -r tsconfig-paths/register src/main.ts",

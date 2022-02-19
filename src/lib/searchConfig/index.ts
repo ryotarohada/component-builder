@@ -4,7 +4,7 @@ import { UserConfig } from '../../types'
 export const searchConfig = (): UserConfig => {
   let file: string
   try {
-    file = fs.readFileSync('./.wavyrc', {
+    file = fs.readFileSync('./component-builder.json', {
       encoding: 'utf-8',
     })
     return JSON.parse(file)
