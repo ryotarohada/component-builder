@@ -9,6 +9,9 @@
     "node": "14.18.2",
     "yarn": "1.22.17"
   },
+  "bin": {
+    "component-builder": "dist/bin/cli.js"
+  },
   "scripts": {
     "excute": "ts-node -r tsconfig-paths/register src/main.ts",
     "dev": "tsnd -r tsconfig-paths/register --respawn src/main.ts",
