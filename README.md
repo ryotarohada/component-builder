@@ -1,12 +1,16 @@
-# boilerplate_tsnode
+# ComponentBuilder
 
-Node.js + TypeScript の開発用テンプレート
+Reactコンポーネントに関するファイルをCLIで生成するライブラリ。
 
-## 環境変数について
+生成するファイルは以下の拡張子の種類をカスタマイズして設定できる
 
-dotenv を使用、`src/lib/env/`に記述している
+- index.tsx
+- ComponentName.tsx
+- ComponentName.test.tsx
+- ComponentName.stories.tsx
+- ComponentName.types.ts
 
-### 環境変数を設定する際の手順
+## Usage
 
-- `.env`ファイルをルートに作成、任意の内容を記述
-- 型情報を`src/types/global.d.ts`に記述する
+`npm run component-builder componentName filePath`
+`yarn component-builder componentName filePath`
