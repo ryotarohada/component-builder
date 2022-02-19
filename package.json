@@ -1,7 +1,7 @@
 {
   "name": "@wavy/react",
-  "version": "0.0.1",
-  "main": "src/main.ts",
+  "version": "0.0.2",
+  "main": "dist/src/main.js",
   "repository": "https://github.com/ryotarohada/wavy.git",
   "author": "Ryotaro Hada <ryotarohada@gmail.com>",
   "license": "MIT",

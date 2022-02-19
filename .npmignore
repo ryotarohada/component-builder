@@ -1,0 +1,9 @@
+node_modules
+.editorconfig
+src
+.eslintrc
+.prettierignore
+.prettierrc
+.wavyrc
+tsconfig.json
+yarn.lock
