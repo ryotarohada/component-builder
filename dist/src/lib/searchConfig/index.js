@@ -8,7 +8,7 @@ const fs_extra_1 = __importDefault(require("fs-extra"));
 const searchConfig = () => {
     let file;
     try {
-        file = fs_extra_1.default.readFileSync('./component-builder.json', {
+        file = fs_extra_1.default.readFileSync('./.wavyrc', {
             encoding: 'utf-8',
         });
         return JSON.parse(file);
