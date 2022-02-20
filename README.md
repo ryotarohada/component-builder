@@ -1,21 +1,28 @@
-# component-builder
+# component-builder/react
 
 Reactコンポーネントに関するファイルをCLIで生成するライブラリ。必要なファイルなどを手動で追加するのが手間なので作った。
 
-生成するファイルは以下の拡張子の種類をカスタマイズして設定できる。
-
-- index.tsx
-- presenter.tsx
-- ComponentName.test.tsx
-- ComponentName.stories.tsx
-- ComponentName.types.ts
-
-今後はコンポーネントの記述、test、storiesファイルへの自動コード生成もやろうと思っている。
+近いうちに生成時のコード挿入もやろうと思っている。
 
 ## Usage
 
 `component-builder componentName filePath`
-`component-builder componentName filePath`
+
+以下のように省略してscriptsに記述すると楽になる。
+
+```json
+  "scripts": {
+    "cb": "component-builder"
+  },
+```
+
+`npm run cb componentName filePath`
+
+`yarn cb componentName filePath`
+
+### filePathを省略
+
+後述するconfigファイルに`rootDir`を記述している場合は省略可能。
 
 ## config
 
@@ -23,7 +30,7 @@ Reactコンポーネントに関するファイルをCLIで生成するライブ
 
 ### rootDir
 
-生成するファイルの共通パスを設定
+生成するファイルの共通パスを設定。
 
 ```json
 {
@@ -38,10 +45,37 @@ Reactコンポーネントに関するファイルをCLIで生成するライブ
 ```Json
 {
   "outExtensions": [
+  "index",
+  "presenter",
+  "types",
   "stories",
   "test",
-  "types",
-  "presenter",
   ]
 }
 ```
+#### index
+
+`index.tsx`ファイルを生成。
+
+#### presenter
+
+Container/Presenter構成を想定し、`index.tsx`と`presenter.tsx`を生成する。
+
+#### types
+
+コンポーネントに対する型定義ファイル、`componentName.types.ts`を生成する。
+
+#### stories
+
+Storybookで使用する`componentName.stories.tsx`を生成する。
+
+#### test
+
+テストライブラリで使用する`componentName.test.tsx`を生成する。
+
+### 追加予定の案
+- `.js, .jsx`拡張子対応（現状はtsxのみ）
+- コードが記述された状態でファイル生成
+- クラスコンポーネント、関数コンポーネントをconfigで選べる
+- プリセット機能（生成するファイルのプリセットをconfigで設定し、それぞれ出力できるようにする）
+- 他ライブラリと連携（ESLint、prettierなど）

@@ -1,27 +1,21 @@
-'use strict'
-Object.defineProperty(exports, '__esModule', { value: true })
-exports.generateBuildConfig = void 0
-const searchConfig_1 = require('../searchConfig')
-const parseCommands_1 = require('../parseCommands')
-// 指定可能な拡張子
-const VALID_EXTENSION_TYPES = ['stories', 'test', 'types', 'presenter']
-// 使用不可の拡張子が含まれていた場合は除外
-const extensionFilter = (outExtensions) => {
-  const invalidExtensionFilter = outExtensions.flatMap((extension) => {
-    return VALID_EXTENSION_TYPES.filter((validExtension) => {
-      if (extension === validExtension) return extension
-    })
-  })
-  return invalidExtensionFilter
-}
-// ファイル生成用のconfigオブジェクトを生成
-const generateBuildConfig = () => {
-  const { componentName, filePath } = (0, parseCommands_1.parseUserCommand)()
-  const { rootDir, outExtensions } = (0, searchConfig_1.searchConfig)()
-  return {
-    outPath: rootDir + filePath + componentName + '/',
-    componentName,
-    outExtensions: extensionFilter(outExtensions),
-  }
-}
-exports.generateBuildConfig = generateBuildConfig
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.generateBuildMaterial = void 0;
+const parseCommands_1 = require("../parseCommands");
+const searchConfig_1 = require("../searchConfig");
+const middleWares_1 = require("./middleWares");
+/**
+ * コマンド引数とconfigファイルの内容からbuildMaterialオブジェクト（ファイル生成に使用する情報が入っている）を生成
+ */
+const generateBuildMaterial = () => {
+    const { componentName, filePath } = (0, parseCommands_1.parseUserCommand)();
+    const { rootDir, outExtensions } = (0, searchConfig_1.searchConfig)();
+    const { outPathMiddleWare, outExtentionsMiddleWare } = (0, middleWares_1.buildMaterialMiddleWares)();
+    const buildMaterial = {
+        outPath: outPathMiddleWare({ componentName, filePath, rootDir }),
+        componentName,
+        outExtensions: outExtentionsMiddleWare(outExtensions),
+    };
+    return buildMaterial;
+};
+exports.generateBuildMaterial = generateBuildMaterial;
