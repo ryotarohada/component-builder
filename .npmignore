@@ -8,3 +8,4 @@ src
 tsconfig.json
 yarn.lock
 tests
+component-builder.json
