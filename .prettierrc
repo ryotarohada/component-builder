@@ -5,5 +5,5 @@
   "arrowParens": "always",
   "trailingComma": "all",
   "htmlWhitespaceSensitivity": "ignore",
-  "printWidth": 80
+  "printWidth": 85
 }

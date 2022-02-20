@@ -1,8 +1,8 @@
 import fs from 'fs-extra'
-import { BuildConfig } from '../../types'
+import { BuildMaterial } from '../../types'
 
-export const createFiles = (config: BuildConfig) => {
-  const { outPath, componentName, outExtensions } = config
+export const createFiles = (buildMaterial: BuildMaterial) => {
+  const { outPath, componentName, outExtensions } = buildMaterial
 
   outExtensions.forEach((extension) => {
     switch (extension) {
@@ -25,12 +25,12 @@ export const createFiles = (config: BuildConfig) => {
   })
 }
 
-const createIndexFile = ({ outPath }: Pick<BuildConfig, 'outPath'>) => {
+const createIndexFile = ({ outPath }: Pick<BuildMaterial, 'outPath'>) => {
   fs.createFileSync(outPath + 'index.tsx')
   console.log('index File: Done! 🔧')
 }
 
-const createPresenterFile = ({ outPath }: Pick<BuildConfig, 'outPath'>) => {
+const createPresenterFile = ({ outPath }: Pick<BuildMaterial, 'outPath'>) => {
   fs.createFileSync(outPath + 'index.tsx')
   console.log('container File: Done! 🔧')
   fs.createFileSync(outPath + 'presenter.tsx')
@@ -40,7 +40,7 @@ const createPresenterFile = ({ outPath }: Pick<BuildConfig, 'outPath'>) => {
 const createTestFile = ({
   outPath,
   componentName,
-}: Omit<BuildConfig, 'outExtensions'>) => {
+}: Omit<BuildMaterial, 'outExtensions'>) => {
   fs.createFileSync(outPath + componentName + '.test.tsx')
   console.log('Test File: Done! 🔧')
 }
@@ -48,7 +48,7 @@ const createTestFile = ({
 const createStoriesFile = ({
   outPath,
   componentName,
-}: Omit<BuildConfig, 'outExtensions'>) => {
+}: Omit<BuildMaterial, 'outExtensions'>) => {
   fs.createFileSync(outPath + componentName + '.stories.tsx')
   console.log('Stories File: Done! 🔧')
 }
@@ -56,7 +56,7 @@ const createStoriesFile = ({
 const createTypesFile = ({
   outPath,
   componentName,
-}: Omit<BuildConfig, 'outExtensions'>) => {
+}: Omit<BuildMaterial, 'outExtensions'>) => {
   fs.createFileSync(outPath + componentName + '.types.ts')
   console.log('Types File: Done! 🔧')
 }

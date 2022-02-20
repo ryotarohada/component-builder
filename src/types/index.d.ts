@@ -3,13 +3,9 @@ export type UserConfig = {
   outExtensions: OutExtensionsType[]
 }
 
-export type OutExtensionsType =
-  | 'index'
-  | 'presenter'
-  | 'types'
-  | 'test'
-  | 'stories'
-export type BuildConfig = {
+export type OutExtensionsType = 'index' | 'presenter' | 'types' | 'test' | 'stories'
+
+export type BuildMaterial = {
   outPath: string
   componentName: string
   outExtensions: OutExtensionsType[]
