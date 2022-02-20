@@ -6,8 +6,11 @@ export const createFiles = (config: BuildConfig) => {
 
   outExtensions.forEach((extension) => {
     switch (extension) {
+      case 'index':
+        createIndexFile({ outPath })
+        break
       case 'presenter':
-        createPresenterFile({ outPath, componentName })
+        createPresenterFile({ outPath })
         break
       case 'test':
         createTestFile({ outPath, componentName })
@@ -22,10 +25,12 @@ export const createFiles = (config: BuildConfig) => {
   })
 }
 
-const createPresenterFile = ({
-  outPath,
-  componentName,
-}: Omit<BuildConfig, 'outExtensions'>) => {
+const createIndexFile = ({ outPath }: Pick<BuildConfig, 'outPath'>) => {
+  fs.createFileSync(outPath + 'index.tsx')
+  console.log('index File: Done! 🔧')
+}
+
+const createPresenterFile = ({ outPath }: Pick<BuildConfig, 'outPath'>) => {
   fs.createFileSync(outPath + 'index.tsx')
   console.log('container File: Done! 🔧')
   fs.createFileSync(outPath + 'presenter.tsx')

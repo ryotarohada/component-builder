@@ -3,7 +3,12 @@ export type UserConfig = {
   outExtensions: OutExtensionsType[]
 }
 
-export type OutExtensionsType = 'stories' | 'test' | 'types' | 'presenter'
+export type OutExtensionsType =
+  | 'index'
+  | 'presenter'
+  | 'types'
+  | 'test'
+  | 'stories'
 export type BuildConfig = {
   outPath: string
   componentName: string
