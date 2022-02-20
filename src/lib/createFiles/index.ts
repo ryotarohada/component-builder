@@ -1,5 +1,6 @@
 import fs from 'fs-extra'
 import { BuildMaterial } from '../../types'
+import { createIndexFile } from './createIndexFile'
 
 export const createFiles = (buildMaterial: BuildMaterial) => {
   const { outPath, componentName, outExtensions } = buildMaterial
@@ -23,11 +24,6 @@ export const createFiles = (buildMaterial: BuildMaterial) => {
         break
     }
   })
-}
-
-const createIndexFile = ({ outPath }: Pick<BuildMaterial, 'outPath'>) => {
-  fs.createFileSync(outPath + 'index.tsx')
-  console.log('index File: Done! 🔧')
 }
 
 const createPresenterFile = ({ outPath }: Pick<BuildMaterial, 'outPath'>) => {

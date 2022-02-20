@@ -1,4 +1,4 @@
 {
   "rootDir": "tests/components/",
-  "outExtensions": ["presenter"]
+  "outExtensions": ["index"]
 }

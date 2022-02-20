@@ -1,3 +1,8 @@
+export type UserCommand = {
+  componentName: string
+  filePath: string
+}
+
 export type UserConfig = {
   rootDir: string
   outExtensions: OutExtensionsType[]
@@ -9,9 +14,4 @@ export type BuildMaterial = {
   outPath: string
   componentName: string
   outExtensions: OutExtensionsType[]
-}
-
-export type UserCommand = {
-  componentName: string
-  filePath: string
 }
