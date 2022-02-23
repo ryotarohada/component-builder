@@ -8,7 +8,7 @@ export const createFiles = (buildMaterial: BuildMaterial) => {
   outExtensions.forEach((extension) => {
     switch (extension) {
       case 'index':
-        createIndexFile({ outPath })
+        createIndexFile({ outPath, componentName })
         break
       case 'presenter':
         createPresenterFile({ outPath })
